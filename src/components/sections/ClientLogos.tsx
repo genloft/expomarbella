@@ -37,15 +37,15 @@ export default function ClientLogos() {
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        <div className="flex w-[max-content] animate-marquee items-center gap-16 md:gap-24 px-8">
+        <div className="flex w-[max-content] animate-marquee hover:[animation-play-state:paused] items-center gap-16 md:gap-24 px-8">
           {duplicatedLogos.map((src, idx) => (
-            <div key={idx} className="relative w-40 md:w-56 h-20 md:h-28 flex-shrink-0 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 grayscale hover:grayscale-0">
+            <div key={idx} className="relative w-48 md:w-64 h-24 md:h-32 flex-shrink-0 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 grayscale hover:grayscale-0">
               <Image 
                 src={src}
                 alt="Cliente"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 160px, 224px"
+                sizes="(max-width: 768px) 192px, 256px"
               />
             </div>
           ))}

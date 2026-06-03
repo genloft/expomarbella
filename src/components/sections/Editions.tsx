@@ -28,7 +28,7 @@ const mockEditions = [
   },
   {
     id: 12,
-    title: "DecoMarbella Nº11",
+    title: "DecoMarbella Nº12",
     date: "Spring/Summer 2025",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367cb596f1efb37",
@@ -38,7 +38,7 @@ const mockEditions = [
   },
   {
     id: 11,
-    title: "DecoMarbella Nº10",
+    title: "DecoMarbella Nº11",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/00618036748829f9c6888",
@@ -48,7 +48,7 @@ const mockEditions = [
   },
   {
     id: 10,
-    title: "DecoMarbella Nº09",
+    title: "DecoMarbella Nº10",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367de65c934f9a8",
@@ -58,7 +58,7 @@ const mockEditions = [
   },
   {
     id: 9,
-    title: "DecoMarbella Nº08",
+    title: "DecoMarbella Nº09",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367fc3f806d68e3",
@@ -68,7 +68,7 @@ const mockEditions = [
   },
   {
     id: 8,
-    title: "DecoMarbella Nº07",
+    title: "DecoMarbella Nº08",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367d07b1089a3d2",
@@ -78,7 +78,7 @@ const mockEditions = [
   },
   {
     id: 7,
-    title: "DecoMarbella Nº05",
+    title: "DecoMarbella Nº07",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/00618036707dbf26e60e9",
@@ -88,7 +88,7 @@ const mockEditions = [
   },
   {
     id: 6,
-    title: "DecoMarbella Nº04",
+    title: "DecoMarbella Nº06",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367b572c350cca2",
@@ -98,7 +98,7 @@ const mockEditions = [
   },
   {
     id: 5,
-    title: "DecoMarbella Nº03",
+    title: "DecoMarbella Nº05",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367671f6c353ea9",
@@ -108,7 +108,7 @@ const mockEditions = [
   },
   {
     id: 4,
-    title: "DecoMarbella Nº02",
+    title: "DecoMarbella Nº04",
     date: "Edición Pasada",
     desc: "Descubre esta edición completa en nuestro visor interactivo.",
     coverUrl: "https://www.calameo.com/books/social/cover/006180367d3130913ee50",
@@ -121,6 +121,15 @@ const mockEditions = [
 export default function Editions() {
   const [selectedYear, setSelectedYear] = useState<string>("all");
   const [activeEdition, setActiveEdition] = useState<typeof mockEditions[0] | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const filteredEditions = mockEditions.filter(edition => {
+    if (selectedYear === "all") return true;
+    if (selectedYear === "Anteriores") return edition.date === "Edición Pasada";
+    return edition.date.includes(selectedYear);
+  });
+
+  const displayedEditions = showAll ? filteredEditions : filteredEditions.slice(0, 3);
 
   return (
     <section id="ediciones" className="py-24 bg-white text-brand-dark relative">
@@ -148,7 +157,10 @@ export default function Editions() {
             {["all", "2026", "2025", "2024", "Anteriores"].map((year) => (
               <button
                 key={year}
-                onClick={() => setSelectedYear(year)}
+                onClick={() => {
+                  setSelectedYear(year);
+                  setShowAll(false);
+                }}
                 className={`px-4 py-2 rounded font-bold transition-colors ${
                   selectedYear === year
                     ? "bg-brand-navy text-white"
@@ -162,11 +174,7 @@ export default function Editions() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {mockEditions.filter(edition => {
-            if (selectedYear === "all") return true;
-            if (selectedYear === "Anteriores") return edition.date === "Edición Pasada";
-            return edition.date.includes(selectedYear);
-          }).map((edition, idx) => (
+          {displayedEditions.map((edition, idx) => (
             <motion.div
               key={edition.id}
               initial={{ opacity: 0, y: 30 }}
@@ -176,7 +184,7 @@ export default function Editions() {
               className="group flex flex-col"
             >
               <div 
-                className="relative aspect-[3/4] mb-6 overflow-hidden bg-brand-light/20 rounded shadow-md cursor-pointer"
+                className="relative aspect-[1/1.414] mb-6 overflow-hidden rounded shadow-md cursor-pointer bg-transparent"
                 onClick={() => setActiveEdition(edition)}
               >
                 {edition.isNew && (
@@ -216,6 +224,17 @@ export default function Editions() {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && filteredEditions.length > 3 && (
+          <div className="mt-16 flex justify-center">
+            <button 
+              onClick={() => setShowAll(true)}
+              className="bg-brand-navy hover:bg-brand-orange text-white hover:text-brand-navy font-bold px-8 py-4 rounded transition-colors duration-300 uppercase tracking-wider"
+            >
+              Ver todas las ediciones
+            </button>
+          </div>
+        )}
       </div>
 
       {/* PDF Viewer Modal */}

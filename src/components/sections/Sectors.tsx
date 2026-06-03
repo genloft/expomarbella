@@ -91,8 +91,6 @@ export default function Sectors() {
           ))}
         </motion.div>
       </div>
-      
-      <ClientLogos />
     </section>
   );
 }

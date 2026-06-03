@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CalendarDays, Eye, Globe2 } from "lucide-react";
+import Link from "next/link";
 
 export default function Advertise() {
   const values = [
@@ -105,9 +106,9 @@ export default function Advertise() {
         </motion.div>
 
         <div className="text-center">
-          <button className="bg-brand-orange text-brand-dark px-10 py-4 rounded font-bold text-lg hover:bg-brand-navy hover:text-white transition-colors shadow-lg shadow-brand-orange/30">
+          <Link href="#contacto" className="inline-block bg-brand-orange text-brand-dark px-10 py-4 rounded font-bold text-lg hover:bg-brand-navy hover:text-white transition-colors shadow-lg shadow-brand-orange/30">
             Solicitar tarifa publicitaria
-          </button>
+          </Link>
         </div>
       </div>
     </section>

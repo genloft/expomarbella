@@ -6,6 +6,7 @@ import Editions from "@/components/sections/Editions";
 import Distribution from "@/components/sections/Distribution";
 import Advertise from "@/components/sections/Advertise";
 import Events from "@/components/sections/Events";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -14,10 +15,12 @@ export default function Home() {
       <ClientLogos />
       <TheChange />
       <Sectors />
+      <ClientLogos />
       <Editions />
       <Distribution />
       <Advertise />
       <Events />
+      <Contact />
     </>
   );
 }

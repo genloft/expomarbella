@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -19,20 +19,6 @@ export default function Footer() {
             <p className="font-serif text-brand-light text-lg italic">
               Interior Design · Real Estate · Gastronomy · Lifestyle
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-sm">
-                IG
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-sm">
-                FB
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-sm">
-                IN
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-sm">
-                YT
-              </a>
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -58,26 +44,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contacto */}
           <div>
-            <h3 className="font-heading font-bold text-white uppercase tracking-wider mb-6">Newsletter</h3>
-            <p className="text-brand-light text-sm mb-4">
-              Suscríbete y sé el primero en recibir cada edición digital y noticias del sector.
-            </p>
-            <form className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Tu email profesional" 
-                className="bg-brand-navy border border-brand-light/20 rounded px-4 py-3 text-white focus:outline-none focus:border-brand-orange"
-                required
-              />
-              <button 
-                type="submit"
-                className="bg-brand-orange text-brand-dark font-bold px-4 py-3 rounded flex items-center justify-center gap-2 hover:bg-white transition-colors"
-              >
-                Suscribirse <ArrowRight size={18} />
-              </button>
-            </form>
+            <h3 className="font-heading font-bold text-white uppercase tracking-wider mb-6">Contacto Directo</h3>
+            <ul className="flex flex-col gap-4">
+              <li className="text-brand-light text-sm font-bold">Javier Sancho <span className="block font-normal text-brand-light/60">Ventas & Contenidos</span></li>
+              <li>
+                <a href="mailto:info@decomarbella.es" className="flex items-center gap-2 text-brand-light hover:text-brand-orange transition-colors">
+                  <Mail size={16} /> info@decomarbella.es
+                </a>
+              </li>
+              <li>
+                <a href="tel:+34600000000" className="flex items-center gap-2 text-brand-light hover:text-brand-orange transition-colors">
+                  <Phone size={16} /> +34 600 000 000
+                </a>
+              </li>
+              <li className="pt-2">
+                <div className="flex gap-3">
+                  <a href="https://linkedin.com/company/decomarbella" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-xs">
+                    IN
+                  </a>
+                  <a href="https://instagram.com/decomarbella" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-xs">
+                    IG
+                  </a>
+                  <a href="https://facebook.com/decomarbella" target="_blank" rel="noreferrer" className="w-9 h-9 rounded-full bg-brand-navy flex items-center justify-center text-white hover:bg-brand-orange transition-colors font-bold text-xs">
+                    FB
+                  </a>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 

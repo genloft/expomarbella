@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function Events() {
   const events = [
@@ -71,9 +72,9 @@ export default function Events() {
               <p className="text-brand-light font-sans flex-grow mb-8">
                 {evt.desc}
               </p>
-              <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white group-hover:text-brand-orange transition-colors mt-auto">
+              <Link href="#contacto" className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-white group-hover:text-brand-orange transition-colors mt-auto">
                 Saber más <ArrowRight size={16} />
-              </button>
+              </Link>
             </motion.div>
           ))}
         </div>
