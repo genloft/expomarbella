@@ -143,9 +143,9 @@ export default function Editions() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex gap-2"
+            className="flex flex-wrap gap-2"
           >
-            {["all", "2026", "2025", "2024"].map((year) => (
+            {["all", "2026", "2025", "2024", "Anteriores"].map((year) => (
               <button
                 key={year}
                 onClick={() => setSelectedYear(year)}
@@ -162,7 +162,11 @@ export default function Editions() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {mockEditions.map((edition, idx) => (
+          {mockEditions.filter(edition => {
+            if (selectedYear === "all") return true;
+            if (selectedYear === "Anteriores") return edition.date === "Edición Pasada";
+            return edition.date.includes(selectedYear);
+          }).map((edition, idx) => (
             <motion.div
               key={edition.id}
               initial={{ opacity: 0, y: 30 }}
