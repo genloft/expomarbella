@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Paintbrush, Building2, UtensilsCrossed, Plane, Heart, Globe } from "lucide-react";
+import ClientLogos from "./ClientLogos";
 
 export default function Sectors() {
   const sectors = [
@@ -90,6 +91,8 @@ export default function Sectors() {
           ))}
         </motion.div>
       </div>
+      
+      <ClientLogos />
     </section>
   );
 }

@@ -18,6 +18,15 @@ const config: Config = {
           dark: "#0A0A0A",
         }
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        }
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+      },
       fontFamily: {
         heading: ["var(--font-heading)"],
         sans: ["var(--font-sans)"],
