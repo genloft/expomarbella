@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { X, ExternalLink } from "lucide-react";
 
 const mockEditions = [
   {
@@ -120,7 +119,6 @@ const mockEditions = [
 
 export default function Editions() {
   const [selectedYear, setSelectedYear] = useState<string>("all");
-  const [activeEdition, setActiveEdition] = useState<typeof mockEditions[0] | null>(null);
   const [showAll, setShowAll] = useState(false);
 
   const filteredEditions = mockEditions.filter(edition => {
@@ -183,9 +181,11 @@ export default function Editions() {
               transition={{ delay: idx * 0.1 }}
               className="group flex flex-col"
             >
-              <div 
-                className="relative aspect-[1/1.414] mb-6 overflow-hidden rounded shadow-md cursor-pointer bg-transparent"
-                onClick={() => setActiveEdition(edition)}
+              <a 
+                href={edition.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative aspect-[1/1.414] mb-6 overflow-hidden rounded shadow-md cursor-pointer bg-transparent block"
               >
                 {edition.isNew && (
                   <div className="absolute top-4 right-4 z-10 bg-brand-orange text-brand-dark font-black text-sm px-3 py-1 uppercase rounded-sm shadow-lg">
@@ -196,14 +196,14 @@ export default function Editions() {
                   src={edition.coverUrl}
                   alt={edition.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-[1.1]"
                 />
                 <div className="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/60 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <span className="bg-white text-brand-navy font-bold px-6 py-3 rounded-sm translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    Leer Edición
+                    Leer en Calaméo
                   </span>
                 </div>
-              </div>
+              </a>
               
               <div className="flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
@@ -237,55 +237,6 @@ export default function Editions() {
         )}
       </div>
 
-      {/* PDF Viewer Modal */}
-      <AnimatePresence>
-        {activeEdition && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-navy/90 backdrop-blur-sm p-4 md:p-10"
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white w-full max-w-6xl h-full max-h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden"
-            >
-              <div className="flex justify-between items-center p-6 border-b border-gray-100">
-                <div>
-                  <h3 className="font-heading font-black text-2xl text-brand-navy">{activeEdition.title}</h3>
-                  <p className="text-brand-dark/60 font-sans text-sm">{activeEdition.date}</p>
-                </div>
-                <div className="flex gap-4">
-                  <a 
-                    href={activeEdition.pdfUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-brand-orange hover:text-brand-navy transition-colors font-bold text-sm"
-                  >
-                    <ExternalLink size={18} /> Abrir Externamente
-                  </a>
-                  <button 
-                    onClick={() => setActiveEdition(null)}
-                    className="text-brand-dark/50 hover:text-brand-navy transition-colors"
-                  >
-                    <X size={28} />
-                  </button>
-                </div>
-              </div>
-              <div className="flex-grow bg-gray-100 flex items-center justify-center relative p-8">
-                {/* Temporary PDF Viewer Mock */}
-                <div className="bg-white w-full h-full rounded shadow-sm border border-gray-200 flex flex-col items-center justify-center">
-                  <Image src={activeEdition.coverUrl} alt="Cover" width={300} height={400} className="mb-6 shadow-lg rounded-sm opacity-50" />
-                  <p className="text-brand-navy font-bold text-xl">Visor de PDF Integrado</p>
-                  <p className="text-brand-dark/50 max-w-md text-center mt-2">Aquí se cargaría el iframe de Issuu o un componente react-pdf mostrando {activeEdition.title}.</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </section>
   );
 }
