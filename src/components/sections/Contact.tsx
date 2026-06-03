@@ -26,8 +26,14 @@ export default function Contact() {
 
             <div className="bg-white p-8 md:p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
               <div className="flex items-center gap-6 mb-8 border-b border-gray-100 pb-8">
-                <div className="w-20 h-20 bg-brand-light/20 rounded-full flex items-center justify-center text-brand-navy font-black text-2xl uppercase shrink-0">
-                  JS
+                <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-brand-orange">
+                  <Image 
+                    src="https://decomarbella.es/wp-content/uploads/2026/01/Javier-para-web-744x1024.jpg"
+                    alt="Javier Sancho"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="80px"
+                  />
                 </div>
                 <div>
                   <h3 className="font-heading font-black text-2xl text-brand-navy">Javier Sancho</h3>

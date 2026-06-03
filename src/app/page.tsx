@@ -12,7 +12,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ClientLogos />
       <TheChange />
       <Sectors />
       <ClientLogos />
