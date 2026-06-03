@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import ClientLogos from "@/components/sections/ClientLogos";
 import TheChange from "@/components/sections/TheChange";
 import Sectors from "@/components/sections/Sectors";
 import Editions from "@/components/sections/Editions";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ClientLogos />
       <TheChange />
       <Sectors />
       <Editions />

@@ -25,27 +25,27 @@ export default function ClientLogos() {
   const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos];
 
   return (
-    <div className="py-16 bg-brand-navy overflow-hidden mt-12 border-t border-brand-light/10">
+    <div className="py-16 bg-white overflow-hidden border-t border-gray-100">
       <div className="container mx-auto px-6 mb-8 text-center">
-        <p className="text-sm font-bold uppercase text-brand-light tracking-widest">
+        <p className="text-sm font-bold uppercase text-brand-dark/40 tracking-widest">
           Confían en nosotros
         </p>
       </div>
       
       <div className="relative w-full overflow-hidden flex items-center">
         {/* Gradients for smooth fade on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-navy to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-navy to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="flex w-[max-content] animate-marquee items-center gap-16 md:gap-24 px-8">
           {duplicatedLogos.map((src, idx) => (
-            <div key={idx} className="relative w-32 md:w-40 h-16 flex-shrink-0 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 grayscale hover:grayscale-0">
+            <div key={idx} className="relative w-40 md:w-56 h-20 md:h-28 flex-shrink-0 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 grayscale hover:grayscale-0">
               <Image 
                 src={src}
                 alt="Cliente"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 128px, 160px"
+                sizes="(max-width: 768px) 160px, 224px"
               />
             </div>
           ))}
