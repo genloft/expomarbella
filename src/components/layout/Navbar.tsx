@@ -47,22 +47,32 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-brand-light hover:text-brand-orange transition-colors"
-            >
-              {link.name}
-            </Link>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-brand-light hover:text-brand-orange transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-brand-light hover:text-brand-orange transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
           <div className="flex items-center gap-4 ml-4 border-l border-brand-light/20 pl-8">
             <span className="text-xl">🇪🇸</span>
-            <Link
+            <a
               href="#anunciate"
               className="bg-brand-orange text-brand-dark px-6 py-2.5 rounded font-bold hover:bg-white hover:text-brand-navy transition-colors"
             >
               Anúnciate con nosotros
-            </Link>
+            </a>
           </div>
         </nav>
 
@@ -80,27 +90,38 @@ export default function Navbar() {
         <div className="lg:hidden absolute top-full left-0 w-full bg-brand-navy border-t border-brand-light/10 shadow-xl">
           <div className="flex flex-col p-6 gap-4">
             {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-lg font-medium text-white hover:text-brand-orange"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
+              link.href.startsWith('#') ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-lg font-medium text-white hover:text-brand-orange"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-lg font-medium text-white hover:text-brand-orange"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <div className="mt-4 pt-4 border-t border-brand-light/20 flex flex-col gap-4">
               <div className="flex gap-4">
                 <span className="text-2xl cursor-pointer">🇪🇸</span>
                 <span className="text-2xl cursor-pointer opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">🇬🇧</span>
               </div>
-              <Link
+              <a
                 href="#anunciate"
                 className="bg-brand-orange text-brand-dark text-center px-6 py-3 rounded font-bold hover:bg-white transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Anúnciate con nosotros
-              </Link>
+              </a>
             </div>
           </div>
         </div>

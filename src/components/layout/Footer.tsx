@@ -25,11 +25,11 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-bold text-white uppercase tracking-wider mb-6">Explora</h3>
             <ul className="flex flex-col gap-3">
-              <li><Link href="#la-revista" className="text-brand-light hover:text-brand-orange transition-colors">La Revista</Link></li>
-              <li><Link href="#ediciones" className="text-brand-light hover:text-brand-orange transition-colors">Ediciones Anteriores</Link></li>
-              <li><Link href="#sectores" className="text-brand-light hover:text-brand-orange transition-colors">Sectores</Link></li>
-              <li><Link href="#distribucion" className="text-brand-light hover:text-brand-orange transition-colors">Puntos de Distribución</Link></li>
-              <li><Link href="#contacto" className="text-brand-light hover:text-brand-orange transition-colors">Contacto</Link></li>
+              <li><a href="#la-revista" className="text-brand-light hover:text-brand-orange transition-colors">La Revista</a></li>
+              <li><a href="#ediciones" className="text-brand-light hover:text-brand-orange transition-colors">Ediciones Anteriores</a></li>
+              <li><a href="#sectores" className="text-brand-light hover:text-brand-orange transition-colors">Sectores</a></li>
+              <li><a href="#distribucion" className="text-brand-light hover:text-brand-orange transition-colors">Puntos de Distribución</a></li>
+              <li><a href="#contacto" className="text-brand-light hover:text-brand-orange transition-colors">Contacto</a></li>
             </ul>
           </div>
 
@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-bold text-white uppercase tracking-wider mb-6">Negocio</h3>
             <ul className="flex flex-col gap-3">
-              <li><Link href="#anunciate" className="text-brand-light hover:text-brand-orange transition-colors">Anúnciate con nosotros</Link></li>
+              <li><a href="#anunciate" className="text-brand-light hover:text-brand-orange transition-colors">Anúnciate con nosotros</a></li>
               <li><Link href="#" className="text-brand-light hover:text-brand-orange transition-colors">Media Kit 2026</Link></li>
               <li><Link href="#" className="text-brand-light hover:text-brand-orange transition-colors">Colaboraciones</Link></li>
               <li><Link href="#" className="text-brand-light hover:text-brand-orange transition-colors">Eventos & Patrocinios</Link></li>

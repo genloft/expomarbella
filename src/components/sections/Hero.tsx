@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -41,18 +40,18 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
+            <a
               href="#ediciones"
               className="bg-brand-orange text-brand-dark px-8 py-4 rounded font-bold text-lg hover:bg-white transition-colors w-full sm:w-auto"
             >
               Ver la revista nº14
-            </Link>
-            <Link
+            </a>
+            <a
               href="#el-cambio"
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded font-bold text-lg hover:bg-white hover:text-brand-navy transition-colors w-full sm:w-auto"
             >
               Conoce el cambio
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
@@ -63,10 +62,10 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
-        <Link href="#el-cambio" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+        <a href="#el-cambio" className="flex flex-col items-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
           <span className="text-sm font-bold uppercase tracking-widest">Descubrir</span>
           <ArrowDown size={24} />
-        </Link>
+        </a>
       </motion.div>
     </section>
   );
