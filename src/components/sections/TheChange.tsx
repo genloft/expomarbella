@@ -72,6 +72,7 @@ export default function TheChange() {
                 alt="ExpoMarbella Magazine Cover" 
                 fill
                 className="object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border border-brand-light/20"
+                suppressHydrationWarning
               />
               <div className="absolute -inset-4 border-2 border-brand-orange/30 -z-10 translate-x-4 translate-y-4 rounded-sm"></div>
             </div>

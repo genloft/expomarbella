@@ -46,6 +46,7 @@ export default function ClientLogos() {
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 192px, 256px"
+                suppressHydrationWarning
               />
             </div>
           ))}

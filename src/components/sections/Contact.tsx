@@ -33,6 +33,7 @@ export default function Contact() {
                     fill
                     className="object-cover object-[center_20%]"
                     sizes="80px"
+                    suppressHydrationWarning
                   />
                 </div>
                 <div>
