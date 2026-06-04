@@ -2,19 +2,16 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
-import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <Image
+        <img
           src="/images/hero_cover_baja.jpg"
           alt="ExpoMarbella Cover 14"
-          fill
-          priority
-          className="object-cover object-[center_20%]"
+          className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent" />
       </div>

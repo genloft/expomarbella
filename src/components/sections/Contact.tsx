@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, Briefcase, ArrowRight } from "lucide-react";
-import Image from "next/image";
 
 export default function Contact() {
   return (
@@ -27,13 +26,10 @@ export default function Contact() {
             <div className="bg-white p-8 md:p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
               <div className="flex items-center gap-6 mb-8 border-b border-gray-100 pb-8">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-brand-orange">
-                  <Image 
+                  <img 
                     src="https://decomarbella.es/wp-content/uploads/2026/01/Javier-para-web-744x1024.jpg"
                     alt="Javier Sancho"
-                    fill
-                    className="object-cover object-[center_20%]"
-                    sizes="80px"
-                    suppressHydrationWarning
+                    className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
                   />
                 </div>
                 <div>

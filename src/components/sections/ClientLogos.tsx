@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 
 const clientLogos = [
   "https://decomarbella.es/wp-content/uploads/2026/01/Savills-1.png",
@@ -40,13 +39,10 @@ export default function ClientLogos() {
         <div className="flex w-[max-content] animate-marquee hover:[animation-play-state:paused] items-center gap-16 md:gap-24 px-8">
           {duplicatedLogos.map((src, idx) => (
             <div key={idx} className="relative w-48 md:w-64 h-24 md:h-32 flex-shrink-0 opacity-60 hover:opacity-100 hover:scale-105 transition-all duration-300 grayscale hover:grayscale-0">
-              <Image 
+              <img 
                 src={src}
                 alt="Cliente"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 192px, 256px"
-                suppressHydrationWarning
+                className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
           ))}

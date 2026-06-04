@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 
 const mockEditions = [
@@ -192,12 +191,10 @@ export default function Editions() {
                     Nueva Edición
                   </div>
                 )}
-                <Image
+                <img
                   src={edition.coverUrl}
                   alt={edition.title}
-                  fill
-                  className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-[1.1]"
-                  suppressHydrationWarning
+                  className="absolute inset-0 w-full h-full object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-[1.1]"
                 />
                 <div className="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/60 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <span className="bg-white text-brand-navy font-bold px-6 py-3 rounded-sm translate-y-4 group-hover:translate-y-0 transition-all duration-300">

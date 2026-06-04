@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 export default function TheChange() {
   return (
@@ -67,12 +66,10 @@ export default function TheChange() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative w-full max-w-md mx-auto aspect-[3/4] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out shadow-2xl">
-              <Image 
+              <img 
                 src="/images/Portada_ExpoMarbella.jpg" 
                 alt="ExpoMarbella Magazine Cover" 
-                fill
-                className="object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border border-brand-light/20"
-                suppressHydrationWarning
+                className="absolute inset-0 w-full h-full object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border border-brand-light/20"
               />
               <div className="absolute -inset-4 border-2 border-brand-orange/30 -z-10 translate-x-4 translate-y-4 rounded-sm"></div>
             </div>
