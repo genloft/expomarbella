@@ -52,13 +52,13 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <a href="tel:+34600000000" className="flex items-center gap-4 group">
+                <a href="tel:+34675250741" className="flex items-center gap-4 group">
                   <div className="w-12 h-12 bg-gray-50 group-hover:bg-brand-orange/10 rounded-full flex items-center justify-center transition-colors">
                     <Phone size={20} className="text-brand-navy group-hover:text-brand-orange transition-colors" />
                   </div>
                   <div>
                     <p className="text-xs text-brand-dark/50 font-bold uppercase tracking-wider mb-1">Teléfono Directo</p>
-                    <p className="font-medium text-brand-dark group-hover:text-brand-orange transition-colors">+34 600 000 000</p>
+                    <p className="font-medium text-brand-dark group-hover:text-brand-orange transition-colors">+34 675 250 741</p>
                   </div>
                 </a>
 
@@ -87,24 +87,33 @@ export default function Contact() {
               
               <h3 className="font-heading font-bold text-3xl mb-8 relative z-10">Envíanos un mensaje rápido</h3>
               
-              <form className="relative z-10 space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="relative z-10 space-y-6" onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const name = formData.get('nombre');
+                const empresa = formData.get('empresa');
+                const email = formData.get('email');
+                const mensaje = formData.get('mensaje');
+                const body = `Nombre: ${name}%0AEmpresa: ${empresa}%0AEmail: ${email}%0A%0AMensaje:%0A${mensaje}`;
+                window.location.href = `mailto:info@decomarbella.es?subject=Contacto desde web&body=${body}`;
+              }}>
                 <div>
                   <label className="block text-sm font-bold text-brand-light mb-2">Tu Nombre</label>
-                  <input type="text" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Ej. María García" />
+                  <input name="nombre" type="text" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Ej. María García" required />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-brand-light mb-2">Tu Empresa</label>
-                  <input type="text" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Nombre de tu marca" />
+                  <input name="empresa" type="text" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Nombre de tu marca" />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-brand-light mb-2">Email de Contacto</label>
-                  <input type="email" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="hola@empresa.com" />
+                  <input name="email" type="email" className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="hola@empresa.com" required />
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-brand-light mb-2">¿En qué podemos ayudarte?</label>
-                  <textarea rows={4} className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Me gustaría recibir el media kit..."></textarea>
+                  <textarea name="mensaje" rows={4} className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Me gustaría recibir el media kit..." required></textarea>
                 </div>
-                <button className="w-full bg-brand-orange text-brand-dark font-bold py-4 rounded hover:bg-white transition-colors flex justify-center items-center gap-2 uppercase tracking-wide">
+                <button type="submit" className="w-full bg-brand-orange text-brand-dark font-bold py-4 rounded hover:bg-white transition-colors flex justify-center items-center gap-2 uppercase tracking-wide">
                   Enviar Mensaje <ArrowRight size={18} />
                 </button>
               </form>
