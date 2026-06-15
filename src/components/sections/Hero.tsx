@@ -9,7 +9,7 @@ export default function Hero() {
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-brand-navy">
         <iframe
-          src="https://www.youtube.com/embed/cRQff_UnpNk?autoplay=1&mute=1&loop=1&playlist=cRQff_UnpNk&controls=0&showinfo=0&rel=0&playsinline=1"
+          src="https://www.youtube.com/embed/cRQff_UnpNk?autoplay=1&mute=1&loop=1&playlist=cRQff_UnpNk&controls=0&showinfo=0&rel=0&playsinline=1&start=6"
           allow="autoplay; encrypted-media"
           className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         />
