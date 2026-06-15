@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -8,6 +9,9 @@ import { Menu, X } from "lucide-react";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,22 +22,25 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Inicio", href: "/" },
     { name: "SHOWROOM", href: "/showroom" },
     { name: "Marbella Gourmet", href: "/marbella-gourmet" },
     { name: "Networking", href: "/networking" },
     { name: "Revista", href: "/revista" },
-    { name: "Ediciones anteriores", href: "#ediciones" },
+    { name: "Ediciones anteriores", href: "/#ediciones" },
     { name: "Noticias", href: "/noticias" },
-    { name: "Distribución", href: "#distribucion" },
-    { name: "Contacto", href: "#contacto" },
+    { name: "Distribución", href: "/#distribucion" },
+    { name: "Contacto", href: "/#contacto" },
   ];
 
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-brand-navy/90 backdrop-blur-md shadow-lg py-4"
+        isHome
+          ? isScrolled
+            ? "bg-brand-navy/90 backdrop-blur-md shadow-lg py-4"
+            : "bg-transparent py-6"
+          : isScrolled
+          ? "bg-white/90 backdrop-blur-md shadow-md py-4"
           : "bg-transparent py-6"
       }`}
     >
@@ -41,7 +48,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <Image 
-            src="/images/logo-expomarbella.png" 
+            src={isHome ? "/images/logo-expomarbella.png" : "/images/Logo ExpoMarbella_b.png"} 
             alt="expomarbella" 
             width={180} 
             height={40} 
@@ -53,11 +60,13 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
-            link.href.startsWith('#') ? (
+            link.href.includes('#') ? (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-brand-light hover:text-brand-orange transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  isHome ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
+                }`}
               >
                 {link.name}
               </a>
@@ -65,13 +74,15 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-brand-light hover:text-brand-orange transition-colors"
+                className={`text-sm font-medium transition-colors ${
+                  isHome ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
+                }`}
               >
                 {link.name}
               </Link>
             )
           ))}
-          <div className="flex items-center gap-4 ml-4 border-l border-brand-light/20 pl-8">
+          <div className={`flex items-center gap-4 ml-4 border-l pl-8 ${isHome ? "border-brand-light/20" : "border-brand-navy/20"}`}>
             <span className="text-xl">🇪🇸</span>
             <a
               href="#anunciate"
@@ -84,7 +95,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="lg:hidden text-white"
+          className={`lg:hidden ${isHome ? "text-white" : "text-brand-navy"}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -96,7 +107,7 @@ export default function Navbar() {
         <div className="lg:hidden absolute top-full left-0 w-full bg-brand-navy border-t border-brand-light/10 shadow-xl">
           <div className="flex flex-col p-6 gap-4">
             {navLinks.map((link) => (
-              link.href.startsWith('#') ? (
+              link.href.includes('#') ? (
                 <a
                   key={link.name}
                   href={link.href}
