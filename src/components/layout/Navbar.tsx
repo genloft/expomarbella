@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
@@ -18,9 +19,12 @@ export default function Navbar() {
 
   const navLinks = [
     { name: "Inicio", href: "/" },
-    { name: "La Revista", href: "#la-revista" },
-    { name: "Ediciones", href: "#ediciones" },
-    { name: "Sectores", href: "#sectores" },
+    { name: "SHOWROOM", href: "/showroom" },
+    { name: "Marbella Gourmet", href: "/marbella-gourmet" },
+    { name: "Networking", href: "/networking" },
+    { name: "Revista", href: "/revista" },
+    { name: "Ediciones anteriores", href: "#ediciones" },
+    { name: "Noticias", href: "/noticias" },
     { name: "Distribución", href: "#distribucion" },
     { name: "Contacto", href: "#contacto" },
   ];
@@ -35,13 +39,15 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-1 group">
-          <span className="font-heading font-black text-2xl tracking-tighter text-brand-orange uppercase">
-            Expo
-          </span>
-          <span className="font-heading font-black text-2xl tracking-tighter text-white uppercase">
-            Marbella
-          </span>
+        <Link href="/" className="flex items-center group">
+          <Image 
+            src="/images/logo-expomarbella.png" 
+            alt="expomarbella" 
+            width={180} 
+            height={40} 
+            className="h-10 w-auto object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Nav */}

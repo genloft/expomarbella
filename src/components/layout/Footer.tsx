@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
@@ -8,13 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand & Tagline */}
           <div className="flex flex-col gap-6">
-            <Link href="/" className="flex items-center gap-1 group">
-              <span className="font-heading font-black text-3xl tracking-tighter text-brand-orange uppercase">
-                Expo
-              </span>
-              <span className="font-heading font-black text-3xl tracking-tighter text-white uppercase">
-                Marbella
-              </span>
+            <Link href="/" className="flex items-center group">
+              <Image 
+                src="/images/logo-expomarbella.png" 
+                alt="expomarbella" 
+                width={200} 
+                height={44} 
+                className="h-11 w-auto object-contain"
+              />
             </Link>
             <p className="font-serif text-brand-light text-lg italic">
               Interior Design · Real Estate · Gastronomy · Lifestyle
@@ -25,9 +27,12 @@ export default function Footer() {
           <div>
             <h3 className="font-heading font-bold text-white uppercase tracking-wider mb-6">Explora</h3>
             <ul className="flex flex-col gap-3">
-              <li><a href="#la-revista" className="text-brand-light hover:text-brand-orange transition-colors">La Revista</a></li>
+              <li><Link href="/showroom" className="text-brand-light hover:text-brand-orange transition-colors">SHOWROOM</Link></li>
+              <li><Link href="/marbella-gourmet" className="text-brand-light hover:text-brand-orange transition-colors">Marbella Gourmet</Link></li>
+              <li><Link href="/networking" className="text-brand-light hover:text-brand-orange transition-colors">Networking</Link></li>
+              <li><Link href="/revista" className="text-brand-light hover:text-brand-orange transition-colors">Revista</Link></li>
               <li><a href="#ediciones" className="text-brand-light hover:text-brand-orange transition-colors">Ediciones Anteriores</a></li>
-              <li><a href="#sectores" className="text-brand-light hover:text-brand-orange transition-colors">Sectores</a></li>
+              <li><Link href="/noticias" className="text-brand-light hover:text-brand-orange transition-colors">Noticias</Link></li>
               <li><a href="#distribucion" className="text-brand-light hover:text-brand-orange transition-colors">Puntos de Distribución</a></li>
               <li><a href="#contacto" className="text-brand-light hover:text-brand-orange transition-colors">Contacto</a></li>
             </ul>
