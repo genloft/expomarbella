@@ -6,14 +6,14 @@ import { ArrowDown } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hero_cover_baja.jpg"
-          alt="ExpoMarbella Cover 14"
-          className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-brand-navy">
+        <iframe
+          src="https://www.youtube.com/embed/cRQff_UnpNk?autoplay=1&mute=1&loop=1&playlist=cRQff_UnpNk&controls=0&showinfo=0&rel=0&playsinline=1"
+          allow="autoplay; encrypted-media"
+          className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/30" />
       </div>
 
       {/* Content */}
