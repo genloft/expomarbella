@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <Image 
-            src={isHome ? "/images/logo-expomarbella.png" : "/images/Logo ExpoMarbella_b.png"} 
+            src={isHome ? "/images/logo-expomarbella.png" : "/images/logo-expomarbella-b.png"} 
             alt="expomarbella" 
             width={180} 
             height={40} 
