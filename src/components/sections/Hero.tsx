@@ -4,12 +4,20 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 import BackgroundVideo from "@/components/ui/BackgroundVideo";
+import Image from "next/image";
 
 export default function Hero() {
   return (
     <section className="relative h-[100svh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
-      {/* Background Video with Overlay */}
+      {/* Background Video/Image with Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-brand-navy">
+        <Image 
+          src="/images/hero_cover.png"
+          alt="ExpoMarbella Hero"
+          fill
+          className="object-cover opacity-80 md:hidden"
+          priority
+        />
         <BackgroundVideo />
         <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/60 to-brand-navy/30" />
       </div>
