@@ -15,7 +15,7 @@ export default function Hero() {
           src="/images/hero_cover.png"
           alt="ExpoMarbella Hero"
           fill
-          className="object-cover opacity-80 md:hidden"
+          className="object-cover opacity-80"
           priority
         />
         <BackgroundVideo />

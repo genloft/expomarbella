@@ -29,7 +29,7 @@ export default function BackgroundVideo() {
   }
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-brand-navy">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
       <iframe
         src="https://www.youtube.com/embed/cRQff_UnpNk?autoplay=1&mute=1&loop=1&playlist=cRQff_UnpNk&controls=0&showinfo=0&rel=0&playsinline=1&start=6"
         allow="autoplay; encrypted-media"
