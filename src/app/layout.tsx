@@ -58,6 +58,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://expomarbella.com",
   },
+  other: {
+    "geo.region": "ES-AN",
+    "geo.placename": "Marbella",
+    "geo.position": "36.5100;-4.8824",
+    "ICBM": "36.5100, -4.8824",
+  },
 };
 
 export default function RootLayout({
@@ -67,11 +73,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <head>
-        <meta name="geo.region" content="ES-AN" />
-        <meta name="geo.placename" content="Marbella" />
-        <meta name="geo.position" content="36.5100;-4.8824" />
-        <meta name="ICBM" content="36.5100, -4.8824" />
+      <body
+        className={`${headingFont.variable} ${sansFont.variable} ${serifFont.variable} font-sans antialiased bg-brand-navy text-white min-h-screen flex flex-col`}
+        suppressHydrationWarning
+      >
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -96,11 +101,6 @@ export default function RootLayout({
             })
           }}
         />
-      </head>
-      <body
-        className={`${headingFont.variable} ${sansFont.variable} ${serifFont.variable} font-sans antialiased bg-brand-navy text-white min-h-screen flex flex-col`}
-        suppressHydrationWarning
-      >
         <Navbar />
         <main className="flex-grow">
           {children}
