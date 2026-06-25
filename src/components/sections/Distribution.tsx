@@ -68,9 +68,9 @@ export default function Distribution() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative mb-20">
+        <div className="relative mb-20 pt-0 md:pt-16">
           {/* Horizontal Line */}
-          <div className="hidden md:block absolute top-[4.5rem] left-0 w-full h-0.5 bg-brand-light/20">
+          <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-brand-light/20 -translate-y-1/2 z-0">
             <motion.div 
               className="h-full bg-brand-orange"
               initial={{ width: "0%" }}
@@ -80,7 +80,7 @@ export default function Distribution() {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 relative z-10">
             {roadmap.map((item, idx) => (
               <motion.div 
                 key={item.year}
@@ -91,9 +91,9 @@ export default function Distribution() {
                 transition={{ delay: idx * 0.3 }}
               >
                 {/* Node */}
-                <div className="hidden md:flex absolute -top-8 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-brand-navy border-4 border-brand-orange z-10" />
+                <div className="hidden md:flex absolute -top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-navy border-4 border-brand-orange z-20" />
                 
-                <div className="bg-white/5 border border-white/10 p-8 rounded-lg mt-0 md:mt-8 hover:bg-white/10 transition-colors h-full">
+                <div className="bg-white/5 border border-white/10 p-8 rounded-lg hover:bg-white/10 transition-colors h-full">
                   <div className="flex items-end gap-3 mb-6 border-b border-brand-light/20 pb-4">
                     <h3 className="font-heading font-black text-5xl text-brand-orange">{item.year}</h3>
                   </div>
