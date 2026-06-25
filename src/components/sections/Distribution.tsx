@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import Link from "next/link";
 
+import Image from "next/image";
+
 export default function Distribution() {
   const roadmap = [
     {
@@ -60,8 +62,8 @@ export default function Distribution() {
           <h2 className="font-heading font-black text-4xl md:text-5xl uppercase mb-6">
             Donde nos <span className="text-brand-orange">encontrarás</span>
           </h2>
-          <p className="text-xl text-brand-light max-w-2xl mx-auto font-serif italic">
-            Desde Marbella hacia el mundo. Un roadmap de crecimiento para llevar tu marca más lejos.
+          <p className="text-xl text-brand-light max-w-3xl mx-auto font-serif italic">
+            Más de 200 puntos de distribución entre Elviria y Sotogrande, la mayoría en Marbella, Puerto Banús, Nueva Andalucía, San Pedro y Estepona. Estamos en los mejores showrooms, estudios de arquitectura e interiorismo, restaurantes, clínicas, hoteles y centros de negocios.
           </p>
         </motion.div>
 
@@ -112,6 +114,38 @@ export default function Distribution() {
           </div>
         </div>
 
+        {/* Gallery */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <motion.div 
+            className="relative aspect-square bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Image 
+              src="/images/el_corte_ingles_magazines.png" 
+              alt="Revistas ExpoMarbella en exhibición dentro de El Corte Inglés Puerto Banús" 
+              fill
+              className="object-cover" 
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+          <motion.div 
+            className="relative aspect-square bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <Image 
+              src="/images/people_reading_magazine.png" 
+              alt="Lectores disfrutando de la revista ExpoMarbella en un entorno de lujo" 
+              fill
+              className="object-cover" 
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </motion.div>
+        </div>
+
         {/* CTA */}
         <motion.div 
           className="text-center bg-white/5 p-12 rounded-xl border border-white/10 max-w-4xl mx-auto"
@@ -120,16 +154,16 @@ export default function Distribution() {
           viewport={{ once: true }}
         >
           <h3 className="font-heading font-black text-3xl md:text-4xl uppercase mb-6">
-            ¿Quieres que tu marca llegue más lejos?
+            ¿Quieres posicionar tu marca en Marbella?
           </h3>
           <p className="text-brand-light text-lg mb-8 max-w-2xl mx-auto">
-            Únete a ExpoMarbella y posiciona tu empresa frente a un público inversor y de alto poder adquisitivo.
+            Únete a nosotros y promociona tu producto o servicio en un mercado de alto poder adquisitivo y de carácter internacional.
           </p>
           <Link 
             href="#contacto"
             className="inline-block bg-brand-orange text-brand-dark px-10 py-4 rounded font-bold text-lg hover:bg-white transition-colors"
           >
-            Solicitar información y media kit
+            Solicita información y precios
           </Link>
         </motion.div>
       </div>

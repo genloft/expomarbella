@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Mail, Phone, Briefcase, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 export default function Contact() {
   return (
@@ -17,19 +18,21 @@ export default function Contact() {
             viewport={{ once: true }}
           >
             <h2 className="font-heading font-black text-4xl md:text-5xl uppercase text-brand-navy mb-6">
-              Hablemos de <span className="text-brand-orange">tu marca</span>
+              Consultoría de <span className="text-brand-orange">marketing</span>
             </h2>
-            <p className="text-xl font-serif italic text-brand-dark/70 mb-10 max-w-lg">
-              Estamos aquí para ayudarte a diseñar la mejor estrategia de visibilidad en el sector premium de la Costa del Sol.
+            <p className="text-lg text-brand-dark/80 mb-10 text-justify">
+              Además de ofrecer visibilidad a través de la revista ExpoMarbella y de nuestra web, podemos ayudar a las empresas a desarrollar una estrategia de marketing integral orientada a fortalecer su posicionamiento en Marbella y la Costa del Sol. Nuestro servicio de consultoría analiza la identidad de la marca, su público objetivo, la competencia y las oportunidades de crecimiento para diseñar un plan personalizado que combine comunicación, relaciones públicas, marketing digital, redes sociales, generación de contenido, eventos y acciones de networking.
             </p>
 
             <div className="bg-white p-8 md:p-10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100">
               <div className="flex items-center gap-6 mb-8 border-b border-gray-100 pb-8">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-brand-orange">
-                  <img 
+                  <Image 
                     src="https://decomarbella.es/wp-content/uploads/2026/01/Javier-para-web-744x1024.jpg"
-                    alt="Javier Sancho"
-                    className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+                    alt="Javier Sancho, Director de Contenidos y Ventas de ExpoMarbella"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="80px"
                   />
                 </div>
                 <div>
@@ -109,6 +112,14 @@ export default function Contact() {
                 <div>
                   <label className="block text-sm font-bold text-brand-light mb-2">¿En qué podemos ayudarte?</label>
                   <textarea name="mensaje" rows={4} className="w-full bg-white/10 border border-white/20 rounded p-4 text-white focus:outline-none focus:border-brand-orange transition-colors" placeholder="Me gustaría recibir el media kit..." required></textarea>
+                </div>
+                <div>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="privacidad" required className="mt-1 w-4 h-4 rounded border-white/20 bg-white/10 text-brand-orange focus:ring-brand-orange accent-brand-orange" />
+                    <span className="text-sm text-brand-light/80">
+                      He leído y acepto la <a href="/politica-de-privacidad" className="text-brand-orange hover:underline">política de privacidad</a> y consiento el tratamiento de mis datos para la gestión de esta consulta.
+                    </span>
+                  </label>
                 </div>
                 <button type="submit" className="w-full bg-brand-orange text-brand-dark font-bold py-4 rounded hover:bg-white transition-colors flex justify-center items-center gap-2 uppercase tracking-wide">
                   Enviar Mensaje <ArrowRight size={18} />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, DM_Sans, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CookieBanner from "@/components/ui/CookieBanner";
 import "./globals.css";
 
 const headingFont = Montserrat({
@@ -21,8 +22,42 @@ const serifFont = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "ExpoMarbella | Interior Design & Lifestyle Magazine",
-  description: "La revista de referencia de la Costa del Sol evoluciona. Interior Design, Real Estate, Gastronomy & Lifestyle.",
+  title: "ExpoMarbella | La revista premium de Arquitectura, Diseño y Lifestyle en la Costa del Sol",
+  description: "Descubre ExpoMarbella, la evolución de DecoMarbella. La publicación de referencia sobre interiorismo, construcción, real estate y estilo de vida en Marbella y la Costa del Sol.",
+  keywords: ["ExpoMarbella", "DecoMarbella", "revista Marbella", "arquitectura Marbella", "interiorismo Marbella", "lifestyle Costa del Sol", "real estate Marbella"],
+  authors: [{ name: "ExpoMarbella" }],
+  creator: "ExpoMarbella",
+  publisher: "ExpoMarbella",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    title: "ExpoMarbella | Interior Design & Lifestyle Magazine",
+    description: "La publicación de referencia en Marbella y la Costa del Sol sobre arquitectura, interiorismo, construcción y estilo de vida.",
+    url: "https://expomarbella.com",
+    siteName: "ExpoMarbella",
+    images: [
+      {
+        url: "https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg", // Usa URL absoluta para og:image
+        width: 800,
+        height: 1067,
+        alt: "Portada ExpoMarbella",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ExpoMarbella | Interior Design & Lifestyle Magazine",
+    description: "La revista de referencia de la Costa del Sol evoluciona.",
+    images: ["https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg"],
+  },
+  alternates: {
+    canonical: "https://expomarbella.com",
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +67,36 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <meta name="geo.region" content="ES-AN" />
+        <meta name="geo.placename" content="Marbella" />
+        <meta name="geo.position" content="36.5100;-4.8824" />
+        <meta name="ICBM" content="36.5100, -4.8824" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "ExpoMarbella",
+              "url": "https://expomarbella.com",
+              "logo": "https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg",
+              "description": "La revista de referencia en la Costa del Sol sobre arquitectura, interiorismo y lifestyle.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Marbella",
+                "addressRegion": "Andalucía",
+                "addressCountry": "ES"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+34-675-250-741",
+                "contactType": "customer service"
+              }
+            })
+          }}
+        />
+      </head>
       <body
         className={`${headingFont.variable} ${sansFont.variable} ${serifFont.variable} font-sans antialiased bg-brand-navy text-white min-h-screen flex flex-col`}
         suppressHydrationWarning
@@ -41,6 +106,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

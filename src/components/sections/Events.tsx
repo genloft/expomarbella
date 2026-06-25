@@ -39,10 +39,10 @@ export default function Events() {
             viewport={{ once: true }}
           >
             <h2 className="font-heading font-black text-4xl md:text-5xl uppercase mb-4">
-              Próximos <span className="text-brand-orange">Eventos</span>
+              Próximos <span className="text-brand-orange">Eventos en Marbella</span>
             </h2>
             <p className="text-brand-light font-sans max-w-xl text-lg">
-              Agenda de presencia oficial y distribución especial.
+              Información sobre próximos eventos de todo tipo en Marbella: construcción, arquitectura, interiorismo, gastronomía, deporte, ocio, salud, belleza, moda...
             </p>
           </motion.div>
         </div>

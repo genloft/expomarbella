@@ -69,16 +69,15 @@ export default function TheChange() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out shadow-2xl bg-white p-2">
+            <div className="relative w-full max-w-sm mx-auto aspect-[9/16] bg-white p-2 shadow-xl rounded-sm">
               <video
-                src="/images/video.mp4"
+                src="/images/new_video.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
                 className="w-full h-full object-cover rounded-sm border border-brand-light/20"
               />
-              <div className="absolute -inset-4 border-2 border-brand-orange/30 -z-10 translate-x-4 translate-y-4 rounded-sm"></div>
             </div>
           </motion.div>
         </div>
