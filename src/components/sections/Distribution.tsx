@@ -68,9 +68,9 @@ export default function Distribution() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative mb-20 pt-0 md:pt-16">
+        <div className="relative mb-20">
           {/* Horizontal Line */}
-          <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-brand-light/20 -translate-y-1/2 z-0">
+          <div className="hidden md:block absolute top-[12px] left-0 w-full h-0.5 bg-brand-light/20 -translate-y-1/2 z-0">
             <motion.div 
               className="h-full bg-brand-orange"
               initial={{ width: "0%" }}
@@ -84,16 +84,16 @@ export default function Distribution() {
             {roadmap.map((item, idx) => (
               <motion.div 
                 key={item.year}
-                className="relative"
+                className="relative flex flex-col items-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.3 }}
               >
                 {/* Node */}
-                <div className="hidden md:flex absolute -top-8 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-brand-navy border-4 border-brand-orange z-20" />
+                <div className="hidden md:flex w-6 h-6 rounded-full bg-brand-navy border-4 border-brand-orange z-20 shrink-0 mb-6" />
                 
-                <div className="bg-white/5 border border-white/10 p-8 rounded-lg hover:bg-white/10 transition-colors h-full">
+                <div className="bg-white/5 border border-white/10 p-8 rounded-lg hover:bg-white/10 transition-colors h-full w-full">
                   <div className="flex items-end gap-3 mb-6 border-b border-brand-light/20 pb-4">
                     <h3 className="font-heading font-black text-5xl text-brand-orange">{item.year}</h3>
                   </div>
