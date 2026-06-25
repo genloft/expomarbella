@@ -22,7 +22,7 @@ export default function TheChange() {
             <div className="space-y-8 text-lg font-sans text-brand-dark/80">
               <div>
                 <p>
-                  Tras seis años consolidándose como publicación de referencia en arquitectura, interiorismo, construcción, diseño y estilo de vida en la Costa del Sol, <strong className="text-brand-navy">DecoMarbella</strong> evoluciona y se convierte en <strong className="text-brand-orange">ExpoMarbella</strong>: una plataforma de comunicación más amplia, innovadora e internacional.
+                  Tras seis años consolidándose como publicación de referencia en arquitectura, interiorismo, construcción, diseño y estilo de vida en la Costa del Sol, <strong className="text-brand-navy">DecoMarbella</strong> evoluciona y se convierte en <strong className="text-brand-navy">ExpoMarbella</strong>: una plataforma de comunicación más amplia, innovadora e internacional.
                 </p>
               </div>
 
@@ -42,15 +42,19 @@ export default function TheChange() {
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>Revista oficial de Marbella Home Meeting</span>
+                    <span>Revista oficial en Marbella Home Meeting</span>
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>200 puntos de distribución desde Elviria hasta Sotogrande</span>
+                    <span>Única revista en España con artículos en 6 idiomas: español, inglés, ruso, alemán, sueco y polaco.</span>
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>Tu publicidad visible más de 6 meses por solo 2 ediciones al año</span>
+                    <span>Más de 200 puntos de distribución en la Costa del Sol, desde Elviria hasta Sotogrande</span>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-orange text-xl">✦</span>
+                    <span>2 ediciones en el año, tu publicidad visible durante 6 meses</span>
                   </li>
                 </ul>
               </div>
@@ -65,12 +69,16 @@ export default function TheChange() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="relative w-full max-w-md mx-auto aspect-[3/4] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out shadow-2xl">
-              <img 
-                src="/images/Portada_ExpoMarbella.jpg" 
-                alt="ExpoMarbella Magazine Cover" 
-                className="absolute inset-0 w-full h-full object-cover rounded-sm shadow-[0_35px_60px_-15px_rgba(0,0,0,0.5)] border border-brand-light/20"
-              />
+            <div className="relative w-full max-w-sm mx-auto aspect-[9/16] rotate-3 hover:rotate-0 transition-transform duration-700 ease-out shadow-2xl bg-white p-2">
+              <iframe
+                src="https://www.instagram.com/reel/DXdwztcNXaX/embed"
+                className="w-full h-full rounded-sm border border-brand-light/20"
+                frameBorder="0"
+                scrolling="no"
+                allowTransparency={true}
+                allow="encrypted-media"
+                title="ExpoMarbella Instagram Reel"
+              ></iframe>
               <div className="absolute -inset-4 border-2 border-brand-orange/30 -z-10 translate-x-4 translate-y-4 rounded-sm"></div>
             </div>
           </motion.div>
