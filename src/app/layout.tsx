@@ -3,6 +3,7 @@ import { Montserrat, DM_Sans, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
+import Script from "next/script";
 import "./globals.css";
 
 const headingFont = Montserrat({
@@ -77,7 +78,8 @@ export default function RootLayout({
         className={`${headingFont.variable} ${sansFont.variable} ${serifFont.variable} font-sans antialiased bg-brand-navy text-white min-h-screen flex flex-col`}
         suppressHydrationWarning
       >
-        <script
+        <Script
+          id="json-ld"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
