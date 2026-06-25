@@ -36,7 +36,7 @@ export default function CookieBanner() {
         >
           <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 max-w-6xl">
             <p className="text-brand-light/90 text-sm leading-relaxed text-center md:text-left">
-              Utilizamos cookies propias y de terceros para fines analíticos y para mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación (por ejemplo, páginas visitadas). Puedes aceptar todas las cookies pulsando el botón "Aceptar todas" o rechazarlas pulsando "Rechazar". Más información en nuestra <Link href="/politica-de-cookies" className="text-brand-orange hover:underline font-bold">Política de Cookies</Link>.
+              Utilizamos cookies propias y de terceros para fines analíticos y para mostrarte publicidad personalizada en base a un perfil elaborado a partir de tus hábitos de navegación (por ejemplo, páginas visitadas). Puedes aceptar todas las cookies pulsando el botón &quot;Aceptar todas&quot; o rechazarlas pulsando &quot;Rechazar&quot;. Más información en nuestra <Link href="/politica-de-cookies" className="text-brand-orange hover:underline font-bold">Política de Cookies</Link>.
             </p>
             <div className="flex gap-4 shrink-0 w-full md:w-auto justify-center md:justify-end">
               <button 

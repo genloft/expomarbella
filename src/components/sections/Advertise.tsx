@@ -143,7 +143,7 @@ export default function Advertise() {
           >
             <h3 className="font-heading font-black text-3xl uppercase text-brand-navy mb-4">Formatos publicitarios en la web</h3>
             <p className="text-brand-dark/70 text-lg">
-              Ofrecemos a las empresas del sector de la construcción un espacio dentro de la sección "Showroom", con su propia landpage con información de su empresa, galería de fotos y vídeos publicados en Instagram, Facebook o Youtube.
+              Ofrecemos a las empresas del sector de la construcción un espacio dentro de la sección &quot;Showroom&quot;, con su propia landpage con información de su empresa, galería de fotos y vídeos publicados en Instagram, Facebook o Youtube.
             </p>
           </motion.div>
 
