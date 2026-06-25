@@ -47,7 +47,7 @@ export default function Hero() {
               href="#ediciones"
               className="bg-brand-orange text-brand-dark px-8 py-4 rounded font-bold text-lg hover:bg-white transition-colors w-full sm:w-auto"
             >
-              Ver la revista nº14
+              Ver la última edición
             </a>
             <a
               href="#el-cambio"

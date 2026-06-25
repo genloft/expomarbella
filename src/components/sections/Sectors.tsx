@@ -31,9 +31,9 @@ export default function Sectors() {
       desc: "Clínicas premium, spas y wellness para un cuidado integral."
     },
     {
-      title: "Proyección Internacional",
+      title: "Ocio & lifestyle",
       icon: <Globe size={32} />,
-      desc: "Conectando Marbella con el mundo y atrayendo inversión global."
+      desc: "Las experiencias, tendencias y lugares que definen el estilo de vida más exclusivo de la Costa del Sol."
     }
   ];
 
@@ -62,7 +62,7 @@ export default function Sectors() {
             viewport={{ once: true }}
             className="font-heading font-black text-4xl md:text-5xl uppercase"
           >
-            ExpoMarbella <span className="text-brand-orange">cubre lo que importa</span>
+            ExpoMarbella <span className="text-brand-orange">te muestra solo lo mejor</span>
           </motion.h2>
         </div>
 
