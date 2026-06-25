@@ -7,6 +7,69 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Distribution() {
+  const galleryImages = [
+    "Screenshot 2026-06-07 at 08-59-15 Instagram.png",
+    "Screenshot 2026-06-07 at 08-59-29 Instagram.png",
+    "Screenshot 2026-06-07 at 08-59-45 Instagram.png",
+    "Screenshot 2026-06-07 at 09-00-20 Instagram.png",
+    "Screenshot 2026-06-07 at 09-01-01 Instagram.png",
+    "Screenshot 2026-06-07 at 09-01-09 Instagram.png",
+    "Screenshot 2026-06-07 at 09-01-20 Instagram.png",
+    "Screenshot 2026-06-07 at 09-01-36 Instagram.png",
+    "Screenshot 2026-06-07 at 09-01-46 Instagram.png",
+    "Screenshot 2026-06-07 at 09-02-54 Instagram.png",
+    "Screenshot 2026-06-07 at 09-03-06 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-10 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-17 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-24 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-33 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-45 Instagram.png",
+    "Screenshot 2026-06-07 at 09-05-56 Instagram.png",
+    "Screenshot 2026-06-07 at 09-06-03 Instagram.png",
+    "Screenshot 2026-06-07 at 09-06-16 Instagram.png",
+    "Screenshot 2026-06-07 at 09-06-35 Instagram.png",
+    "Screenshot 2026-06-07 at 09-06-41 Instagram.png",
+    "Screenshot 2026-06-07 at 09-06-50 Instagram.png",
+    "Screenshot 2026-06-07 at 09-07-10 Instagram.png",
+    "Screenshot 2026-06-07 at 09-07-23 Instagram.png",
+    "Screenshot 2026-06-07 at 09-07-41 Instagram.png",
+    "Screenshot 2026-06-07 at 09-07-47 Instagram.png",
+    "Screenshot 2026-06-07 at 09-07-55 Instagram.png",
+    "Screenshot 2026-06-07 at 09-08-50 Instagram.png",
+    "Screenshot 2026-06-07 at 09-09-43 Instagram.png",
+    "Screenshot 2026-06-07 at 09-10-00 Instagram.png",
+    "Screenshot 2026-06-07 at 09-10-37 Instagram.png",
+    "Screenshot 2026-06-07 at 09-10-51 Instagram.png",
+    "Screenshot 2026-06-07 at 09-11-01 Instagram.png",
+    "Screenshot 2026-06-07 at 09-11-10 Instagram.png",
+    "Screenshot 2026-06-07 at 09-11-28 Instagram.png",
+    "Screenshot 2026-06-07 at 09-11-38 Instagram.png",
+    "Screenshot 2026-06-07 at 09-14-33 Instagram.png",
+    "Screenshot 2026-06-07 at 09-14-45 Instagram.png",
+    "Screenshot 2026-06-07 at 09-14-57 Instagram.png",
+    "Screenshot 2026-06-07 at 09-15-03 Instagram.png",
+    "Screenshot 2026-06-07 at 09-15-09 Instagram.png",
+    "Screenshot 2026-06-07 at 19-25-36 Instagram.png",
+    "Screenshot 2026-06-07 at 19-26-05 Instagram.png",
+    "Screenshot 2026-06-07 at 19-26-13 Instagram.png",
+    "Screenshot 2026-06-07 at 19-26-22 Instagram.png",
+    "Screenshot 2026-06-07 at 19-26-45 Instagram.png",
+    "Screenshot 2026-06-07 at 19-26-56 Instagram.png",
+    "Screenshot 2026-06-07 at 19-27-19 Instagram.png",
+    "Screenshot 2026-06-07 at 19-27-25 Instagram.png",
+    "Screenshot 2026-06-07 at 19-27-33 Instagram.png",
+    "Screenshot 2026-06-07 at 19-27-43 Instagram.png",
+    "Screenshot 2026-06-07 at 19-28-45 Instagram.png",
+    "Screenshot 2026-06-07 at 19-28-55 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-01 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-11 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-17 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-26 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-32 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-38 Instagram.png",
+    "Screenshot 2026-06-07 at 19-29-46 Instagram.png"
+  ];
+
   const roadmap = [
     {
       year: "2026",
@@ -123,26 +186,32 @@ export default function Distribution() {
             viewport={{ once: true }}
           >
             <Image 
-              src="/images/el_corte_ingles_magazines.png" 
-              alt="Revistas ExpoMarbella en exhibición dentro de El Corte Inglés Puerto Banús" 
+              src="/images/ECI junio 2026.jpg" 
+              alt="ExpoMarbella ECI Junio 2026" 
               fill
               className="object-cover" 
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </motion.div>
           <motion.div 
-            className="relative aspect-square bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl"
+            className="relative aspect-square bg-white/5 rounded-xl overflow-y-auto overflow-x-hidden border border-white/10 shadow-2xl p-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-brand-orange/50 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-brand-orange"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <Image 
-              src="/images/people_reading_magazine.png" 
-              alt="Lectores disfrutando de la revista ExpoMarbella en un entorno de lujo" 
-              fill
-              className="object-cover" 
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <div className="grid grid-cols-4 gap-2">
+              {galleryImages.map((img, idx) => (
+                <div key={idx} className="relative aspect-square rounded-md overflow-hidden bg-white/10">
+                  <Image 
+                    src={`/images/galeria/${img}`}
+                    alt={`Galería ExpoMarbella ${idx + 1}`}
+                    fill
+                    className="object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    sizes="(max-width: 768px) 25vw, 12vw"
+                  />
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
 
