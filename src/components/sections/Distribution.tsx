@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { useState, useEffect, useCallback } from "react";
 
 import Image from "next/image";
 
@@ -69,6 +70,23 @@ export default function Distribution() {
     "Screenshot 2026-06-07 at 19-29-38 Instagram.png",
     "Screenshot 2026-06-07 at 19-29-46 Instagram.png"
   ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const nextImage = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+  }, [galleryImages.length]);
+
+  const prevImage = useCallback(() => {
+    setCurrentImageIndex((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+  }, [galleryImages.length]);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const timer = setInterval(nextImage, 1000);
+    return () => clearInterval(timer);
+  }, [isHovered, nextImage]);
 
   const roadmap = [
     {
@@ -194,23 +212,50 @@ export default function Distribution() {
             />
           </motion.div>
           <motion.div 
-            className="relative aspect-square bg-white/5 rounded-xl overflow-y-auto overflow-x-hidden border border-white/10 shadow-2xl p-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-white/5 [&::-webkit-scrollbar-thumb]:bg-brand-orange/50 [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-brand-orange"
+            className="relative aspect-square bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl group"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            <div className="grid grid-cols-4 gap-2">
-              {galleryImages.map((img, idx) => (
-                <div key={idx} className="relative aspect-square rounded-md overflow-hidden bg-white/10">
-                  <Image 
-                    src={`/images/galeria/${img}`}
-                    alt={`Galería ExpoMarbella ${idx + 1}`}
-                    fill
-                    className="object-cover hover:scale-110 transition-transform duration-300 cursor-pointer"
-                    sizes="(max-width: 768px) 25vw, 12vw"
-                  />
-                </div>
-              ))}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentImageIndex}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0"
+              >
+                <Image 
+                  src={`/images/galeria/${galleryImages[currentImageIndex]}`}
+                  alt={`Galería ExpoMarbella ${currentImageIndex + 1}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              </motion.div>
+            </AnimatePresence>
+            
+            <button 
+              onClick={prevImage}
+              aria-label="Imagen anterior"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-brand-navy/80 text-brand-orange p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-navy hover:scale-110 border border-brand-orange/50 hover:border-brand-orange z-10"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={nextImage}
+              aria-label="Imagen siguiente"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-brand-navy/80 text-brand-orange p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all hover:bg-brand-navy hover:scale-110 border border-brand-orange/50 hover:border-brand-orange z-10"
+            >
+              <ChevronRight size={24} />
+            </button>
+
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-brand-navy/80 text-brand-light text-sm px-4 py-1 rounded-full border border-white/10 shadow-lg pointer-events-none z-10">
+              {currentImageIndex + 1} / {galleryImages.length}
             </div>
           </motion.div>
         </div>
