@@ -1,18 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 import Image from "next/image";
 
 const mockEditions = [
   {
     id: 14,
-    title: "ExpoMarbella Nº14",
+    title: "DecoMarbella Nº14",
     date: "Winter/Spring 2026",
     desc: "Especial Rebranding. Entrevista exclusiva directivos Savills, novedades Marbella Home Meeting y lo último en diseño de interiores.",
     coverUrl: "https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg",
     isNew: true,
-    brand: "ExpoMarbella",
+    brand: "DecoMarbella",
     pdfUrl: "https://www.calameo.com/read/007334244285c31f043a4"
   },
   {
@@ -118,78 +117,44 @@ const mockEditions = [
 ];
 
 export default function Editions() {
-  const [selectedYear, setSelectedYear] = useState<string>("all");
-  const [showAll, setShowAll] = useState(false);
-
-  const filteredEditions = mockEditions.filter(edition => {
-    if (selectedYear === "all") return true;
-    if (selectedYear === "Anteriores") return edition.date === "Edición Pasada";
-    return edition.date.includes(selectedYear);
-  });
-
-  const displayedEditions = showAll ? filteredEditions : filteredEditions.slice(0, 3);
-
   return (
     <section id="ediciones" className="py-24 bg-white text-brand-dark relative">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col mb-16 gap-6">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center"
           >
             <h2 className="font-heading font-black text-4xl md:text-5xl uppercase text-brand-navy">
               Todas las <span className="text-brand-orange">ediciones</span>
             </h2>
-            <p className="mt-4 text-brand-dark/70 font-sans max-w-xl">
+            <p className="mt-4 text-brand-dark/70 font-sans max-w-xl mx-auto">
               Explora nuestro archivo completo. Desde los inicios como DecoMarbella hasta la nueva era de ExpoMarbella.
             </p>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-2"
-          >
-            {["all", "2026", "2025", "2024", "Anteriores"].map((year) => (
-              <button
-                key={year}
-                onClick={() => {
-                  setSelectedYear(year);
-                  setShowAll(false);
-                }}
-                className={`px-4 py-2 rounded font-bold transition-colors ${
-                  selectedYear === year
-                    ? "bg-brand-navy text-white"
-                    : "bg-brand-light/20 text-brand-navy hover:bg-brand-light/40"
-                }`}
-              >
-                {year === "all" ? "Todas" : year}
-              </button>
-            ))}
-          </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {displayedEditions.map((edition, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          {mockEditions.map((edition, idx) => (
             <motion.div
               key={edition.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group flex flex-col"
+              className="group"
             >
               <a 
                 href={edition.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative aspect-[1/1.414] mb-6 overflow-hidden rounded shadow-md cursor-pointer bg-transparent block"
+                className="relative aspect-[1/1.414] overflow-hidden rounded shadow-md cursor-pointer bg-transparent block"
               >
                 {edition.isNew && (
-                  <div className="absolute top-4 right-4 z-10 bg-brand-orange text-brand-dark font-black text-sm px-3 py-1 uppercase rounded-sm shadow-lg">
-                    Nueva Edición
+                  <div className="absolute top-2 right-2 z-10 bg-brand-orange text-brand-dark font-black text-[10px] px-2 py-0.5 uppercase rounded-sm shadow-lg">
+                    Nueva
                   </div>
                 )}
                 <Image
@@ -197,47 +162,18 @@ export default function Editions() {
                   alt={`Portada de ${edition.title}`}
                   fill
                   className="object-cover scale-[1.05] transition-transform duration-700 group-hover:scale-[1.1]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
                 />
                 <div className="absolute inset-0 bg-brand-navy/0 group-hover:bg-brand-navy/60 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <span className="bg-white text-brand-navy font-bold px-6 py-3 rounded-sm translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    Leer en Calaméo
+                  <span className="bg-white text-brand-navy font-bold text-sm px-4 py-2 rounded-sm translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    Leer
                   </span>
                 </div>
               </a>
-              
-              <div className="flex flex-col flex-grow">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="font-heading font-bold text-2xl text-brand-navy">{edition.title}</h3>
-                  <span className="text-sm font-bold text-brand-orange bg-brand-orange/10 px-2 py-1 rounded">
-                    {edition.date}
-                  </span>
-                </div>
-                <p className="font-sans text-brand-dark/70 mb-4 line-clamp-2 flex-grow">
-                  {edition.desc}
-                </p>
-                {edition.brand === "DecoMarbella" && (
-                  <p className="text-xs text-brand-light font-bold italic mt-auto">
-                    * Publicada como DecoMarbella
-                  </p>
-                )}
-              </div>
             </motion.div>
           ))}
         </div>
-
-        {!showAll && filteredEditions.length > 3 && (
-          <div className="mt-16 flex justify-center">
-            <button 
-              onClick={() => setShowAll(true)}
-              className="bg-brand-navy hover:bg-brand-orange text-white hover:text-brand-navy font-bold px-8 py-4 rounded transition-colors duration-300 uppercase tracking-wider"
-            >
-              Ver todas las ediciones
-            </button>
-          </div>
-        )}
       </div>
-
     </section>
   );
 }
