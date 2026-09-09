@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Ilustración de Náutico">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001840"/><stop offset="1" stop-color="#000d24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#2E86AB" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#2E86AB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="972" cy="296" r="360" fill="url(#glow)"/>
+  <rect width="1200" height="800" fill="url(#sheen)"/>
+  <path d="M-80 561 Q 600 411 1280 621" fill="none" stroke="#2E86AB" stroke-width="2" opacity="0.30"/><path d="M-80 615 Q 600 465 1280 675" fill="none" stroke="#2E86AB" stroke-width="2" opacity="0.25"/><path d="M-80 669 Q 600 519 1280 729" fill="none" stroke="#2E86AB" stroke-width="2" opacity="0.20"/><path d="M-80 723 Q 600 573 1280 783" fill="none" stroke="#2E86AB" stroke-width="2" opacity="0.15"/>
+
+  <g transform="translate(600 400) rotate(3.9) scale(1.5) translate(-100 -100)"
+     stroke="#2E86AB" fill="none" opacity=".92" stroke-linecap="round">
+    <circle cx="100" cy="30" r="16" fill="none" stroke-width="10"/><path d="M100 46 V170 M60 118 q40 62 80 0 M55 100 H145" fill="none" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <rect x="0" y="792" width="1200" height="8" fill="#FBBA00"/>
+</svg>

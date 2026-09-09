@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Ilustración de Cultura">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001840"/><stop offset="1" stop-color="#000d24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#9B6BC7" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#9B6BC7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="839" cy="236" r="360" fill="url(#glow)"/>
+  <rect width="1200" height="800" fill="url(#sheen)"/>
+  <path d="M-80 603 Q 600 453 1280 663" fill="none" stroke="#9B6BC7" stroke-width="2" opacity="0.30"/><path d="M-80 657 Q 600 507 1280 717" fill="none" stroke="#9B6BC7" stroke-width="2" opacity="0.25"/><path d="M-80 711 Q 600 561 1280 771" fill="none" stroke="#9B6BC7" stroke-width="2" opacity="0.20"/><path d="M-80 765 Q 600 615 1280 825" fill="none" stroke="#9B6BC7" stroke-width="2" opacity="0.15"/>
+
+  <g transform="translate(600 400) rotate(10.0) scale(1.5) translate(-100 -100)"
+     stroke="#9B6BC7" fill="none" opacity=".92" stroke-linecap="round">
+    <path d="M100 168 L28 66 a92 92 0 0 1 144 0 Z" fill="none" stroke-width="10" stroke-linejoin="round"/><path d="M100 168 V52 M100 168 L52 74 M100 168 L148 74" stroke-width="7" opacity=".6"/>
+  </g>
+
+  <rect x="0" y="792" width="1200" height="8" fill="#FBBA00"/>
+</svg>

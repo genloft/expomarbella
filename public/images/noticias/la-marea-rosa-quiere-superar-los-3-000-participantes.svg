@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Ilustración de Solidario">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001840"/><stop offset="1" stop-color="#000d24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#E86A9A" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#E86A9A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="871" cy="303" r="360" fill="url(#glow)"/>
+  <rect width="1200" height="800" fill="url(#sheen)"/>
+  <path d="M-80 571 Q 600 421 1280 631" fill="none" stroke="#E86A9A" stroke-width="2" opacity="0.30"/><path d="M-80 625 Q 600 475 1280 685" fill="none" stroke="#E86A9A" stroke-width="2" opacity="0.25"/><path d="M-80 679 Q 600 529 1280 739" fill="none" stroke="#E86A9A" stroke-width="2" opacity="0.20"/><path d="M-80 733 Q 600 583 1280 793" fill="none" stroke="#E86A9A" stroke-width="2" opacity="0.15"/>
+
+  <g transform="translate(600 400) rotate(6.1) scale(1.5) translate(-100 -100)"
+     stroke="#E86A9A" fill="none" opacity=".92" stroke-linecap="round">
+    <path d="M100 175 C40 120 45 55 78 42 c14 -6 22 6 22 20 0 -14 8 -26 22 -20 33 13 38 78 -22 133 Z" fill="none" stroke-width="10" stroke-linejoin="round"/>
+  </g>
+
+  <rect x="0" y="792" width="1200" height="8" fill="#FBBA00"/>
+</svg>

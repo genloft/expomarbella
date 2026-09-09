@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Ilustración de Turismo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001840"/><stop offset="1" stop-color="#000d24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="969" cy="240" r="360" fill="url(#glow)"/>
+  <rect width="1200" height="800" fill="url(#sheen)"/>
+  <path d="M-80 577 Q 600 427 1280 637" fill="none" stroke="#FBBA00" stroke-width="2" opacity="0.30"/><path d="M-80 631 Q 600 481 1280 691" fill="none" stroke="#FBBA00" stroke-width="2" opacity="0.25"/><path d="M-80 685 Q 600 535 1280 745" fill="none" stroke="#FBBA00" stroke-width="2" opacity="0.20"/><path d="M-80 739 Q 600 589 1280 799" fill="none" stroke="#FBBA00" stroke-width="2" opacity="0.15"/>
+
+  <g transform="translate(600 400) rotate(-9.8) scale(1.5) translate(-100 -100)"
+     stroke="#FBBA00" fill="none" opacity=".92" stroke-linecap="round">
+    <circle cx="100" cy="72" r="38" fill="none" stroke-width="10"/><path d="M100 72 l54.0 0.0 l16.0 0.0" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l38.2 38.2 l11.3 11.3" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l0.0 54.0 l0.0 16.0" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l-38.2 38.2 l-11.3 11.3" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l-54.0 0.0 l-16.0 0.0" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l-38.2 -38.2 l-11.3 -11.3" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l-0.0 -54.0 l-0.0 -16.0" stroke-width="9" stroke-linecap="round"/><path d="M100 72 l38.2 -38.2 l11.3 -11.3" stroke-width="9" stroke-linecap="round"/><path d="M20 155 q25 -18 50 0 t50 0 t50 0" fill="none" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <rect x="0" y="792" width="1200" height="8" fill="#FBBA00"/>
+</svg>

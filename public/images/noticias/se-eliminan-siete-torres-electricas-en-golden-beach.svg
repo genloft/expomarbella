@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Ilustración de Urbanismo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#001840"/><stop offset="1" stop-color="#000d24"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#5B7C99" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#5B7C99" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sheen" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#FBBA00" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#FBBA00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="749" cy="151" r="360" fill="url(#glow)"/>
+  <rect width="1200" height="800" fill="url(#sheen)"/>
+  <path d="M-80 538 Q 600 388 1280 598" fill="none" stroke="#5B7C99" stroke-width="2" opacity="0.30"/><path d="M-80 592 Q 600 442 1280 652" fill="none" stroke="#5B7C99" stroke-width="2" opacity="0.25"/><path d="M-80 646 Q 600 496 1280 706" fill="none" stroke="#5B7C99" stroke-width="2" opacity="0.20"/><path d="M-80 700 Q 600 550 1280 760" fill="none" stroke="#5B7C99" stroke-width="2" opacity="0.15"/>
+
+  <g transform="translate(600 400) rotate(10.0) scale(1.5) translate(-100 -100)"
+     stroke="#5B7C99" fill="none" opacity=".92" stroke-linecap="round">
+    <path d="M25 175 V95 h40 v80 M85 175 V45 h44 v130 M149 175 V110 h30 v65" fill="none" stroke-width="10" stroke-linejoin="round"/><path d="M15 178 H190" stroke-width="10" stroke-linecap="round"/>
+  </g>
+
+  <rect x="0" y="792" width="1200" height="8" fill="#FBBA00"/>
+</svg>
