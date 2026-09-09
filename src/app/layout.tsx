@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/ui/CookieBanner";
 import Script from "next/script";
+import { currentIssue } from "@/data/currentIssue";
 import "./globals.css";
 
 const headingFont = Montserrat({
@@ -41,10 +42,10 @@ export const metadata: Metadata = {
     siteName: "ExpoMarbella",
     images: [
       {
-        url: "https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg", // Usa URL absoluta para og:image
-        width: 800,
-        height: 1067,
-        alt: "Portada ExpoMarbella",
+        url: currentIssue.coverAbsolute, // Usa URL absoluta para og:image
+        width: 1000,
+        height: 1415,
+        alt: `Portada ${currentIssue.title}`,
       },
     ],
     locale: "es_ES",
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ExpoMarbella | Interior Design & Lifestyle Magazine",
     description: "La revista de referencia de la Costa del Sol evoluciona.",
-    images: ["https://decomarbella.es/wp-content/uploads/2026/02/Portada14-web-724x1024.jpg"],
+    images: [currentIssue.coverAbsolute],
   },
   alternates: {
     canonical: "https://expomarbella.com",

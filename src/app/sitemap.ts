@@ -11,7 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1,
     },
-    // Si hubiera más páginas como /contacto o /blog, se añadirían aquí.
-    // Actualmente parece una landing page (one-pager).
+    {
+      url: `${baseUrl}/showroom`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ];
 }

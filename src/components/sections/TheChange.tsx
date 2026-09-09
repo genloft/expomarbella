@@ -42,7 +42,11 @@ export default function TheChange() {
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>Revista oficial en Marbella Home Meeting</span>
+                    <span>Distribución exclusiva en La Zagaleta (Casa Club New Course &amp; Old Course)</span>
+                  </li>
+                  <li className="flex gap-3 items-start">
+                    <span className="text-brand-orange text-xl">✦</span>
+                    <span>Media partner oficial en Marbella Home Meeting</span>
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
@@ -50,11 +54,11 @@ export default function TheChange() {
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>Más de 200 puntos de distribución en la Costa del Sol, desde Elviria hasta Sotogrande</span>
+                    <span>Más de 500 puntos de distribución en la Costa del Sol, desde Marbella hasta Sotogrande</span>
                   </li>
                   <li className="flex gap-3 items-start">
                     <span className="text-brand-orange text-xl">✦</span>
-                    <span>2 ediciones en el año, tu publicidad visible durante 6 meses</span>
+                    <span>2 ediciones en el año. La publicidad de nuestros clientes está visible durante 6 meses.</span>
                   </li>
                 </ul>
               </div>

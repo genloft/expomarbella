@@ -1,9 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Paintbrush, Building2, UtensilsCrossed, Plane, Heart, Globe } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Paintbrush, Building2, UtensilsCrossed, Plane, Heart, Globe, ChevronDown } from "lucide-react";
 
 export default function Sectors() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const sectors = [
     {
       title: "Arquitectura & Interiorismo",
@@ -42,7 +45,7 @@ export default function Sectors() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.08
       }
     }
   };
@@ -53,10 +56,10 @@ export default function Sectors() {
   };
 
   return (
-    <section id="sectores" className="py-24 bg-brand-navy text-white">
+    <section id="sectores" className="py-16 bg-brand-navy text-white">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <motion.h2 
+        <div className="text-center">
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -64,31 +67,58 @@ export default function Sectors() {
           >
             ExpoMarbella <span className="text-brand-orange">te muestra solo lo mejor</span>
           </motion.h2>
+
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            aria-expanded={isOpen}
+            aria-controls="sectores-lista"
+            className="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-light/25 px-6 py-3 font-sans text-sm font-bold uppercase tracking-wider text-brand-light transition-colors hover:border-brand-orange hover:text-brand-orange"
+          >
+            {isOpen ? "Ocultar sectores" : "Ver los sectores"}
+            <ChevronDown
+              size={18}
+              className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+            />
+          </button>
         </div>
 
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-        >
-          {sectors.map((sector, index) => (
-            <motion.div 
-              key={index}
-              variants={itemVariants}
-              className="group bg-brand-navy border border-brand-light/10 p-10 rounded-lg hover:bg-brand-orange transition-colors duration-300 flex flex-col items-center text-center shadow-lg"
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              id="sectores-lista"
+              key="sectores-lista"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
             >
-              <div className="w-16 h-16 bg-brand-light/5 rounded-full flex items-center justify-center mb-6 text-brand-orange group-hover:text-brand-navy group-hover:bg-white/20 transition-colors">
-                {sector.icon}
-              </div>
-              <h3 className="font-heading font-bold text-2xl mb-4 group-hover:text-brand-navy transition-colors">{sector.title}</h3>
-              <p className="font-sans text-brand-light group-hover:text-brand-dark/80 transition-colors">
-                {sector.desc}
-              </p>
+              <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-16"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                {sectors.map((sector, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="group bg-brand-navy border border-brand-light/10 p-10 rounded-lg hover:bg-brand-orange transition-colors duration-300 flex flex-col items-center text-center shadow-lg"
+                  >
+                    <div className="w-16 h-16 bg-brand-light/5 rounded-full flex items-center justify-center mb-6 text-brand-orange group-hover:text-brand-navy group-hover:bg-white/20 transition-colors">
+                      {sector.icon}
+                    </div>
+                    <h3 className="font-heading font-bold text-2xl mb-4 group-hover:text-brand-navy transition-colors">{sector.title}</h3>
+                    <p className="font-sans text-brand-light group-hover:text-brand-dark/80 transition-colors">
+                      {sector.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </motion.div>
             </motion.div>
-          ))}
-        </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

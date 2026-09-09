@@ -1,8 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ChevronLeft, ChevronRight } from "lucide-react";
-import Link from "next/link";
+import { ChevronLeft, ChevronRight, FileDown } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 import Image from "next/image";
@@ -88,42 +87,6 @@ export default function Distribution() {
     return () => clearInterval(timer);
   }, [isHovered, nextImage]);
 
-  const roadmap = [
-    {
-      year: "2026",
-      title: "Consolidación Costa del Sol",
-      points: [
-        "200 puntos de distribución exclusivos",
-        "El Corte Inglés Puerto Banús",
-        "Marbella Home Meeting",
-        "SIMED Málaga",
-        "Ibiza Home Meeting",
-        "FITUR Madrid"
-      ]
-    },
-    {
-      year: "2027",
-      title: "Expansión Nacional",
-      points: [
-        "Madrid capital y zonas premium",
-        "Barcelona",
-        "Distribución en salas VIP",
-        "Nuevos puntos de venta en aeropuertos"
-      ]
-    },
-    {
-      year: "2028+",
-      title: "Proyección Internacional",
-      points: [
-        "Dubai",
-        "Londres",
-        "París",
-        "Berlín",
-        "Lisboa"
-      ]
-    }
-  ];
-
   return (
     <section id="distribucion" className="py-24 bg-brand-navy text-white relative overflow-hidden">
       {/* Background Abstract Map Concept */}
@@ -143,60 +106,32 @@ export default function Distribution() {
           <h2 className="font-heading font-black text-4xl md:text-5xl uppercase mb-6">
             Donde nos <span className="text-brand-orange">encontrarás</span>
           </h2>
+
           <p className="text-xl text-brand-light max-w-3xl mx-auto font-serif italic">
-            Más de 200 puntos de distribución entre Elviria y Sotogrande, la mayoría en Marbella, Puerto Banús, Nueva Andalucía, San Pedro y Estepona. Estamos en los mejores showrooms, estudios de arquitectura e interiorismo, restaurantes, clínicas, hoteles y centros de negocios.
+            Más de 500 puntos de distribución en Marbella, Puerto Banús, Nueva Andalucía, San
+            Pedro, Estepona y Sotogrande. Estamos en los mejores showrooms, estudios de
+            arquitectura e interiorismo, restaurantes, clínicas, hoteles y centros de negocios.
           </p>
+
+          <p className="mt-10 max-w-3xl mx-auto rounded-xl border border-brand-orange/30 bg-brand-orange/10 px-8 py-6 font-sans text-lg md:text-xl font-bold leading-relaxed text-white">
+            Distribuimos <span className="text-brand-orange">en exclusiva</span> dentro de El Corte
+            Inglés de Puerto Banús (zona de atención al cliente) y en La Zagaleta (Casa Club New
+            Course &amp; Old Course).
+          </p>
+
+          <a
+            href="/docs/lista-distribucion-expomarbella-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 font-sans font-bold text-brand-orange underline underline-offset-4 transition-colors hover:text-white"
+          >
+            <FileDown size={20} className="shrink-0" />
+            Descargar aquí la lista de distribución completa
+          </a>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative mb-20">
-          {/* Horizontal Line */}
-          <div className="hidden md:block absolute top-[12px] left-0 w-full h-0.5 bg-brand-light/20 -translate-y-1/2 z-0">
-            <motion.div 
-              className="h-full bg-brand-orange"
-              initial={{ width: "0%" }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 relative z-10">
-            {roadmap.map((item, idx) => (
-              <motion.div 
-                key={item.year}
-                className="relative flex flex-col items-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.3 }}
-              >
-                {/* Node */}
-                <div className="hidden md:flex w-6 h-6 rounded-full bg-brand-navy border-4 border-brand-orange z-20 shrink-0 mb-6" />
-                
-                <div className="bg-white/5 border border-white/10 p-8 rounded-lg hover:bg-white/10 transition-colors h-full w-full">
-                  <div className="flex items-end gap-3 mb-6 border-b border-brand-light/20 pb-4">
-                    <h3 className="font-heading font-black text-5xl text-brand-orange">{item.year}</h3>
-                  </div>
-                  <h4 className="font-heading font-bold text-xl mb-4 text-white uppercase tracking-wide">
-                    {item.title}
-                  </h4>
-                  <ul className="space-y-3">
-                    {item.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 text-brand-light font-sans">
-                        <MapPin size={18} className="text-brand-orange shrink-0 mt-1" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
         {/* Gallery */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <motion.div 
             className="relative aspect-square bg-white/5 rounded-xl overflow-hidden border border-white/10 shadow-2xl"
             initial={{ opacity: 0, x: -30 }}
@@ -259,27 +194,6 @@ export default function Distribution() {
             </div>
           </motion.div>
         </div>
-
-        {/* CTA */}
-        <motion.div 
-          className="text-center bg-white/5 p-12 rounded-xl border border-white/10 max-w-4xl mx-auto"
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="font-heading font-black text-3xl md:text-4xl uppercase mb-6">
-            ¿Quieres posicionar tu marca en Marbella?
-          </h3>
-          <p className="text-brand-light text-lg mb-8 max-w-2xl mx-auto">
-            Únete a nosotros y promociona tu producto o servicio en un mercado de alto poder adquisitivo y de carácter internacional.
-          </p>
-          <Link 
-            href="#contacto"
-            className="inline-block bg-brand-orange text-brand-dark px-10 py-4 rounded font-bold text-lg hover:bg-white transition-colors"
-          >
-            Solicita información y precios
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

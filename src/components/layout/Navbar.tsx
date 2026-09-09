@@ -12,6 +12,10 @@ export default function Navbar() {
   const pathname = usePathname();
   
   const isHome = pathname === "/";
+  // Rutas cuya primera pantalla es oscura: la cabecera transparente necesita
+  // el logotipo y los enlaces en claro hasta que el usuario hace scroll.
+  const hasDarkHero = isHome || pathname === "/showroom";
+  const useLightNav = isHome || (hasDarkHero && !isScrolled);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +28,9 @@ export default function Navbar() {
   const navLinks = [
     { name: "SHOWROOM", href: "/showroom" },
     { name: "Marbella Gourmet", href: "/marbella-gourmet" },
-    { name: "Networking", href: "/networking" },
     { name: "Revista", href: "/revista" },
     { name: "Ediciones anteriores", href: "/#ediciones" },
+    { name: "Eventos", href: "/#eventos" },
     { name: "Noticias", href: "/noticias" },
     { name: "Distribución", href: "/#distribucion" },
     { name: "Contacto", href: "/#contacto" },
@@ -48,7 +52,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <Image 
-            src={isHome ? "/images/logo-expomarbella.png" : "/images/logo-expomarbella-b.png"} 
+            src={useLightNav ? "/images/logo-expomarbella.png" : "/images/logo-expomarbella-b.png"} 
             alt="expomarbella" 
             width={180} 
             height={40} 
@@ -65,7 +69,7 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  isHome ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
+                  useLightNav ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
                 }`}
               >
                 {link.name}
@@ -75,27 +79,27 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
-                  isHome ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
+                  useLightNav ? "text-brand-light hover:text-brand-orange" : "text-brand-navy hover:text-brand-orange"
                 }`}
               >
                 {link.name}
               </Link>
             )
           ))}
-          <div className={`flex items-center gap-4 ml-4 border-l pl-8 ${isHome ? "border-brand-light/20" : "border-brand-navy/20"}`}>
+          <div className={`flex items-center gap-4 ml-4 border-l pl-8 ${useLightNav ? "border-brand-light/20" : "border-brand-navy/20"}`}>
             <span className="text-xl">🇪🇸</span>
             <a
-              href="#anunciate"
+              href="/#pack-expomarbella"
               className="bg-brand-orange text-brand-dark px-6 py-2.5 rounded font-bold hover:bg-white hover:text-brand-navy transition-colors"
             >
-              Anúnciate con nosotros
+              Nuestro Pack ExpoMarbella
             </a>
           </div>
         </nav>
 
         {/* Mobile Menu Toggle */}
         <button
-          className={`lg:hidden ${isHome ? "text-white" : "text-brand-navy"}`}
+          className={`lg:hidden ${useLightNav ? "text-white" : "text-brand-navy"}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -133,11 +137,11 @@ export default function Navbar() {
                 <span className="text-2xl cursor-pointer opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all">🇬🇧</span>
               </div>
               <a
-                href="#anunciate"
+                href="/#pack-expomarbella"
                 className="bg-brand-orange text-brand-dark text-center px-6 py-3 rounded font-bold hover:bg-white transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Anúnciate con nosotros
+                Nuestro Pack ExpoMarbella
               </a>
             </div>
           </div>

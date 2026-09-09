@@ -29,7 +29,6 @@ export default function Footer() {
             <ul className="flex flex-col gap-3">
               <li><Link href="/showroom" className="text-brand-light hover:text-brand-orange transition-colors">SHOWROOM</Link></li>
               <li><Link href="/marbella-gourmet" className="text-brand-light hover:text-brand-orange transition-colors">Marbella Gourmet</Link></li>
-              <li><Link href="/networking" className="text-brand-light hover:text-brand-orange transition-colors">Networking</Link></li>
               <li><Link href="/revista" className="text-brand-light hover:text-brand-orange transition-colors">Revista</Link></li>
               <li><a href="#ediciones" className="text-brand-light hover:text-brand-orange transition-colors">Ediciones Anteriores</a></li>
               <li><Link href="/noticias" className="text-brand-light hover:text-brand-orange transition-colors">Noticias</Link></li>

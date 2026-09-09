@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 import BackgroundVideo from "@/components/ui/BackgroundVideo";
+import { currentIssue } from "@/data/currentIssue";
 import Image from "next/image";
 
 export default function Hero() {
@@ -44,7 +45,9 @@ export default function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#ediciones"
+              href={currentIssue.readUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-brand-orange text-brand-dark px-8 py-4 rounded font-bold text-lg hover:bg-white transition-colors w-full sm:w-auto"
             >
               Ver la última edición
